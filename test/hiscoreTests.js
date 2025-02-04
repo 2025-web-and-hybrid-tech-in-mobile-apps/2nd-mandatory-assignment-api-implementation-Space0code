@@ -196,7 +196,7 @@ describe("Testing hiscores", function () {
         password: "123456",
       })
       .then((response) => {
-        console.log("signup success");
+        console.log("signup success", response.status);
         expect(response.status).to.equal(201);
       })
       .catch((error) => {
@@ -212,8 +212,9 @@ describe("Testing hiscores", function () {
         password: "123456",
       })
       .then((response) => {
-        console.log("login success with JWT");
-        console.log(response.body.jsonWebToken);
+        console.log("login success with JWT", response.status);
+        console.log("JWT", response.body.jsonWebToken);
+        console.log("res body", response.body);
         JWT = response.body.jsonWebToken;
       });
   });
@@ -235,8 +236,9 @@ describe("Testing hiscores", function () {
         timestamp: "2021-04-01T12:00:00Z",
       })
       .then((response) => {
-        console.log(response.status);
-        console.log(response.body);
+        console.log("TEST1", response.status);
+        console.log("TEST2", response.body);
+        console.log("TEST3-JWT", JWT)
         expect(response.status).to.equal(201);
       })
       .catch((error) => {

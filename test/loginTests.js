@@ -207,6 +207,7 @@ describe("Testing login", function () {
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res.body).to.be.jsonSchema(loginSuccessfulSchema);
+        console.log("CORRECT LOGIN. JWT token: " + res.body.jsonWebToken);
         done();
       });
   });
